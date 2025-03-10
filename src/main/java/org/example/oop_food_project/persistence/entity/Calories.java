@@ -13,7 +13,7 @@ import lombok.*;
 public class Calories {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer caloriesId;
     private int calories;
 }

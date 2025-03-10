@@ -18,5 +18,4 @@ public class Carbs {
     private int vitaminAiu;
     private int vitaminB1mg;
     private int vitaminB12mg;
-
 }

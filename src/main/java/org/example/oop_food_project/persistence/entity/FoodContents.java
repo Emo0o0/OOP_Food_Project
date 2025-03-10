@@ -15,12 +15,12 @@ public class FoodContents {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer foodContentsId;
-    @OneToOne
+    @OneToOne(optional = false)
     private Carbs carbs;
-    @OneToOne
+    @OneToOne(optional = false)
     private Proteins proteins;
-    @OneToOne
+    @OneToOne(optional = false)
     private Fats fats;
-    @OneToOne
+    @OneToOne(optional = false)
     private Calories calories;
 }
