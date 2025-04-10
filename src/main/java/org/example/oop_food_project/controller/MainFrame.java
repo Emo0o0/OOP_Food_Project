@@ -636,6 +636,7 @@ public class MainFrame extends JFrame {
         }
     }
 
+    //TODO fix pie chart view
     private void updatePieChart(JPanel chartPanel, Object foodItem, ChartType chartType) {
         // Clear the chart panel
         chartPanel.removeAll();
