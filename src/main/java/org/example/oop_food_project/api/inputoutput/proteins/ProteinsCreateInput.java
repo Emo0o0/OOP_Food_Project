@@ -10,5 +10,5 @@ import org.example.oop_food_project.api.base.OperationInput;
 @AllArgsConstructor
 public class ProteinsCreateInput implements OperationInput {
 
-    private String description;
+    private int amount;
 }

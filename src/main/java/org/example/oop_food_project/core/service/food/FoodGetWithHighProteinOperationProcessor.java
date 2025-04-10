@@ -1,10 +1,10 @@
 package org.example.oop_food_project.core.service.food;
 
 import lombok.RequiredArgsConstructor;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverInput;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverListOutput;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverOperation;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverOutput;
+import org.example.oop_food_project.api.inputoutput.food.gethighprotein.FoodGetWithHighProteinInput;
+import org.example.oop_food_project.api.inputoutput.food.gethighprotein.FoodGetWithHighProteinListOutput;
+import org.example.oop_food_project.api.inputoutput.food.gethighprotein.FoodGetWithHighProteinOperation;
+import org.example.oop_food_project.api.inputoutput.food.gethighprotein.FoodGetWithHighProteinOutput;
 import org.example.oop_food_project.persistence.entity.Food;
 import org.example.oop_food_project.persistence.repository.FoodRepository;
 import org.springframework.stereotype.Service;
@@ -13,18 +13,18 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class FoodGetByCaloriesOverOperationProcessor implements FoodGetByCaloriesOverOperation {
+public class FoodGetWithHighProteinOperationProcessor implements FoodGetWithHighProteinOperation {
 
     private final FoodRepository foodRepository;
 
     @Override
-    public FoodGetByCaloriesOverListOutput process(FoodGetByCaloriesOverInput input) {
+    public FoodGetWithHighProteinListOutput process(FoodGetWithHighProteinInput foodGetWithHighProteinInput) {
 
-        List<Food> caloriesRichFood = foodRepository.findAllFoodWithHighCalories(200);
+        List<Food> caloriesRichFood = foodRepository.findAllFoodWithHighProtein(20);
 
-        return FoodGetByCaloriesOverListOutput.builder()
+        return FoodGetWithHighProteinListOutput.builder()
                 .food(caloriesRichFood.stream()
-                        .map(food -> FoodGetByCaloriesOverOutput.builder()
+                        .map(food -> FoodGetWithHighProteinOutput.builder()
                                 .product(food.getProduct())
                                 .productType(food.getProductType())
                                 .calories(food.getFoodContentsPer100().getCalories().getCalories())

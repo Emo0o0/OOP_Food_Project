@@ -6,7 +6,9 @@ import org.example.oop_food_project.api.base.OperationOutput;
 @Getter
 @Setter
 @Builder
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class FoodCreateOutput implements OperationOutput {
+
+    private int id;
 }

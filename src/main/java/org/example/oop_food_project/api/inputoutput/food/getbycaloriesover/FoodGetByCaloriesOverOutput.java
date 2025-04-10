@@ -19,5 +19,5 @@ public class FoodGetByCaloriesOverOutput {
     private int polyunsaturatedFatsGrams;
     private int saturatedFatsGrams;
     private int transFatsGrams;
-    private String proteinsDescription;
+    private int proteinsAmount;
 }

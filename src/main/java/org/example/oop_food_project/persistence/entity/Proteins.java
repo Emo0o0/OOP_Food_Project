@@ -15,5 +15,5 @@ public class Proteins {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer proteinsId;
-    private String description;
+    private int amount;
 }

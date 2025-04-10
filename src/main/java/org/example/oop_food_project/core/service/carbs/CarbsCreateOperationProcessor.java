@@ -31,6 +31,7 @@ public class CarbsCreateOperationProcessor implements CarbsCreateOperation {
 
         return CarbsCreateOutput.builder()
                 .id(carbs.getCarbsId())
+                .carbs(carbs)
                 .build();
     }
 }

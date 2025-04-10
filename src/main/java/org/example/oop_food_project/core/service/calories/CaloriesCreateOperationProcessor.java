@@ -29,6 +29,7 @@ public class CaloriesCreateOperationProcessor implements CaloriesCreateOperation
 
         return CaloriesCreateOutput.builder()
                 .id(calories.getCaloriesId())
+                .calories(calories)
                 .build();
     }
 }

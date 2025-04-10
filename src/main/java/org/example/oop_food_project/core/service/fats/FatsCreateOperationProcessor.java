@@ -18,7 +18,6 @@ public class FatsCreateOperationProcessor implements FatsCreateOperation {
     @Override
     public FatsCreateOutput process(FatsCreateInput input) {
 
-//        return null;
         if (input.getMonounsaturatedFatsGrams() < 0 ||
                 input.getSaturatedFatsGrams() < 0 ||
                 input.getPolyunsaturatedFatsGrams() < 0 ||
@@ -36,6 +35,7 @@ public class FatsCreateOperationProcessor implements FatsCreateOperation {
 
         return FatsCreateOutput.builder()
                 .id(fats.getFatsId())
+                .fats(fats)
                 .build();
     }
 }

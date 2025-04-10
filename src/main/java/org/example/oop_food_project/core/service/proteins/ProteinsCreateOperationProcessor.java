@@ -18,18 +18,18 @@ public class ProteinsCreateOperationProcessor implements ProteinsCreateOperation
     @Override
     public ProteinsCreateOutput process(ProteinsCreateInput input) {
 
-//        return null;
-        if (input.getDescription().isBlank())
-            throw new ProteinsBlankDescriptionException("Proteins description cannot be blank");
+        if (input.getAmount() < 0)
+            throw new ProteinsBlankDescriptionException("Proteins amount cannot be negative");
 
         Proteins proteins = Proteins.builder()
-                .description(input.getDescription())
+                .amount(input.getAmount())
                 .build();
 
         proteinsRepository.save(proteins);
 
         return ProteinsCreateOutput.builder()
                 .id(proteins.getProteinsId())
+                .proteins(proteins)
                 .build();
     }
 }

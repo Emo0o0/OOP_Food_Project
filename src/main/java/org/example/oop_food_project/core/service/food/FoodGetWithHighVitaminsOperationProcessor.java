@@ -1,10 +1,10 @@
 package org.example.oop_food_project.core.service.food;
 
 import lombok.RequiredArgsConstructor;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverInput;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverListOutput;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverOperation;
-import org.example.oop_food_project.api.inputoutput.food.getbycaloriesover.FoodGetByCaloriesOverOutput;
+import org.example.oop_food_project.api.inputoutput.food.gethighvitamins.FoodGetWithHighVitaminsInput;
+import org.example.oop_food_project.api.inputoutput.food.gethighvitamins.FoodGetWithHighVitaminsListOutput;
+import org.example.oop_food_project.api.inputoutput.food.gethighvitamins.FoodGetWithHighVitaminsOperation;
+import org.example.oop_food_project.api.inputoutput.food.gethighvitamins.FoodGetWithHighVitaminsOutput;
 import org.example.oop_food_project.persistence.entity.Food;
 import org.example.oop_food_project.persistence.repository.FoodRepository;
 import org.springframework.stereotype.Service;
@@ -13,18 +13,18 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class FoodGetByCaloriesOverOperationProcessor implements FoodGetByCaloriesOverOperation {
+public class FoodGetWithHighVitaminsOperationProcessor implements FoodGetWithHighVitaminsOperation {
 
     private final FoodRepository foodRepository;
 
     @Override
-    public FoodGetByCaloriesOverListOutput process(FoodGetByCaloriesOverInput input) {
+    public FoodGetWithHighVitaminsListOutput process(FoodGetWithHighVitaminsInput foodGetWithHighVitaminsInput) {
 
-        List<Food> caloriesRichFood = foodRepository.findAllFoodWithHighCalories(200);
+        List<Food> highVitaminFoods = foodRepository.findAllFoodWithHighVitamins();
 
-        return FoodGetByCaloriesOverListOutput.builder()
-                .food(caloriesRichFood.stream()
-                        .map(food -> FoodGetByCaloriesOverOutput.builder()
+        return FoodGetWithHighVitaminsListOutput.builder()
+                .food(highVitaminFoods.stream()
+                        .map(food -> FoodGetWithHighVitaminsOutput.builder()
                                 .product(food.getProduct())
                                 .productType(food.getProductType())
                                 .calories(food.getFoodContentsPer100().getCalories().getCalories())
@@ -39,5 +39,6 @@ public class FoodGetByCaloriesOverOperationProcessor implements FoodGetByCalorie
                                 .build())
                         .toList())
                 .build();
+
     }
 }
